@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>数组去重的方法 | 穿堂风</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="摘要：  数组去重在面试时几乎是必问的问题，这里总结了几种  数组去重的方法，仅供参考！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数组去重的方法">
+<meta property="og:url" content="https://bianliyao.github.io/2017/08/02/数组去重的方法/index.html">
+<meta property="og:site_name" content="穿堂风">
+<meta property="og:description" content="摘要：  数组去重在面试时几乎是必问的问题，这里总结了几种  数组去重的方法，仅供参考！">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-02T06:41:53.155Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数组去重的方法">
+<meta name="twitter:description" content="摘要：  数组去重在面试时几乎是必问的问题，这里总结了几种  数组去重的方法，仅供参考！">
+  
+    <link rel="alternative" href="/atom.xml" title="穿堂风" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">穿堂风</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">你是无意穿堂风，偏却引山洪。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://bianliyao.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-数组去重的方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/02/数组去重的方法/" class="article-date">
+  <time datetime="2017-08-02T06:31:45.000Z" itemprop="datePublished">2017-08-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数组去重的方法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>摘要：<br>  数组去重在面试时几乎是必问的问题，这里总结了几种<br><br>  数组去重的方法，仅供参考！<br><a id="more"></a></p>
+<h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h2><p><code>Array.prototype.unique1 = function(){
+  var n = []; //一个新的临时数组
+ for(var i = 0; i &lt; this.length; i++) //遍历当前数组
+ {
+ //如果当前数组的第i已经保存进了临时数组，那么跳过，
+ //否则把当前项push到临时数组里面
+ if (n.indexOf(this[i]) == -1) n.push(this[i]);
+ }
+ return n;
+}</code></p>
+<hr>
+<h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h2><p><code>Array.prototype.unique3 = function()
+{
+ var n = [this[0]]; //结果数组
+ for(var i = 1; i &lt; this.length; i++) //从第二项开始遍历
+ {
+ //如果当前数组的第i项在当前数组中第一次出现的位置不是i，
+ //那么表示第i项是重复的，忽略掉。否则存入结果数组
+ if (this.indexOf(this[i]) == i) n.push(this[i]);
+ }
+ return n;
+}</code></p>
+<h2 id="方法三："><a href="#方法三：" class="headerlink" title="方法三："></a>方法三：</h2><p> <code>if(!Array.prototype.indexOf){   
+    Array.prototype.indexOf = function(item){
+      var l = this.length, i = 0, r = -1;
+      if(l &lt;= 0){
+　　　　　　 　　return -1;
+　　　　　　　}
+      for(; i &lt; l; i++){
+        if(this[i] === item){
+          r = i;
+        }
+      }
+      return r;
+    }
+  }</code></p>
+<h3 id="方法四"><a href="#方法四" class="headerlink" title="方法四"></a>方法四</h3><p><code>var result = []; //去重数组
+  for(var i = 0; i &lt; length; i++){
+    if(result.indexOf(this[i]) === -1){
+      result.push(this[i]);
+    }
+  }
+  return result;
+}</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bianliyao.github.io/2017/08/02/数组去重的方法/" data-id="cj5unk01h00018cvul2hkxs8i" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/02/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/08/02/数组去重的方法/">数组去重的方法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/02/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 bianliyao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
