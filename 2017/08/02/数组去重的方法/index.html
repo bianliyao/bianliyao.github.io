@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="穿堂风">
 <meta property="og:description" content="摘要：  数组去重在面试时几乎是必问的问题，这里总结了几种  数组去重的方法，仅供参考！">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-08-02T06:41:53.155Z">
+<meta property="og:updated_time" content="2017-08-02T11:29:12.086Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数组去重的方法">
 <meta name="twitter:description" content="摘要：  数组去重在面试时几乎是必问的问题，这里总结了几种  数组去重的方法，仅供参考！">
@@ -205,51 +205,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>摘要：<br>  数组去重在面试时几乎是必问的问题，这里总结了几种<br><br>  数组去重的方法，仅供参考！<br><a id="more"></a></p>
-<h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h2><p><code>Array.prototype.unique1 = function(){
-  var n = []; //一个新的临时数组
- for(var i = 0; i &lt; this.length; i++) //遍历当前数组
- {
- //如果当前数组的第i已经保存进了临时数组，那么跳过，
- //否则把当前项push到临时数组里面
- if (n.indexOf(this[i]) == -1) n.push(this[i]);
- }
- return n;
-}</code></p>
+<h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h2><p>Array.prototype.unique1 = function(){ <br><br>  var n = []; //一个新的临时数组<br><br> for(var i = 0; i &lt; this.length; i++) //遍历当前数组<br><br> {<br><br> //如果当前数组的第i已经保存进了临时数组，那么跳过，<br><br> //否则把当前项push到临时数组里面<br><br> if (n.indexOf(this[i]) == -1) n.push(this[i]);<br><br> }<br><br> return n;<br><br>}<br></p>
 <hr>
-<h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h2><p><code>Array.prototype.unique3 = function()
-{
- var n = [this[0]]; //结果数组
- for(var i = 1; i &lt; this.length; i++) //从第二项开始遍历
- {
- //如果当前数组的第i项在当前数组中第一次出现的位置不是i，
- //那么表示第i项是重复的，忽略掉。否则存入结果数组
- if (this.indexOf(this[i]) == i) n.push(this[i]);
- }
- return n;
-}</code></p>
-<h2 id="方法三："><a href="#方法三：" class="headerlink" title="方法三："></a>方法三：</h2><p> <code>if(!Array.prototype.indexOf){   
-    Array.prototype.indexOf = function(item){
-      var l = this.length, i = 0, r = -1;
-      if(l &lt;= 0){
-　　　　　　 　　return -1;
-　　　　　　　}
-      for(; i &lt; l; i++){
-        if(this[i] === item){
-          r = i;
-        }
-      }
-      return r;
-    }
-  }</code></p>
-<h3 id="方法四"><a href="#方法四" class="headerlink" title="方法四"></a>方法四</h3><p><code>var result = []; //去重数组
-  for(var i = 0; i &lt; length; i++){
-    if(result.indexOf(this[i]) === -1){
-      result.push(this[i]);
-    }
-  }
-  return result;
-}</code></p>
-
+<h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h2><p>Array.prototype.unique3 = function(){<br><br> var n = [this[0]]; //结果数组<br><br> for(var i = 1; i &lt; this.length; i++){//从第二项开始遍历<br><br> //如果当前数组的第i项在当前数组中第一次出现的位置不是i，<br><br> //那么表示第i项是重复的，忽略掉。否则存入结果数组<br><br> if (this.indexOf(this[i]) == i) n.push(this[i]);<br><br> }<br><br> return n;<br><br>}<br></p>
+<hr>
+<h2 id="方法三："><a href="#方法三：" class="headerlink" title="方法三："></a>方法三：</h2> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(!<span class="built_in">Array</span>.prototype.indexOf)&#123;</div><div class="line">    <span class="built_in">Array</span>.prototype.indexOf = <span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</div><div class="line">      <span class="keyword">var</span> l = <span class="keyword">this</span>.length, i = <span class="number">0</span>, r = <span class="number">-1</span>;</div><div class="line">      <span class="keyword">if</span>(l &lt;= <span class="number">0</span>)&#123;</div><div class="line">　　　　　　 　　<span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">　　　　　　　&#125;</div><div class="line">      <span class="keyword">for</span>(; i &lt; l; i++)&#123;</div><div class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>[i] === item)&#123;</div><div class="line">          r = i;</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> r;</div><div class="line">    &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<h3 id="方法四"><a href="#方法四" class="headerlink" title="方法四"></a>方法四</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> result = []; <span class="comment">//去重数组</span></div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; length; i++)&#123;</div><div class="line">    <span class="keyword">if</span>(result.indexOf(<span class="keyword">this</span>[i]) === <span class="number">-1</span>)&#123;</div><div class="line">      result.push(<span class="keyword">this</span>[i]);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
     
