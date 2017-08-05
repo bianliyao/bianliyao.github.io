@@ -3,22 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2017/8 | 穿堂风</title>
+  <title>穿堂风</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="来尬聊">
-<meta property="og:type" content="website">
+  <meta name="description" content="浏览器常见兼容性问题 FireFox和IE设置透明度IE: filter:progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=60)FireFox: opacity:.6FireFox和IE对盒模型解释不一致导致相差2px`例：box.style{  width：100px;  border 1px;}IE理解为width=100pxFF">
+<meta property="og:type" content="article">
 <meta property="og:title" content="穿堂风">
-<meta property="og:url" content="https://bianliyao.github.io/archives/2017/08/index.html">
+<meta property="og:url" content="https://bianliyao.github.io/2017/08/05/笔记/index.html">
 <meta property="og:site_name" content="穿堂风">
-<meta property="og:description" content="来尬聊">
+<meta property="og:description" content="浏览器常见兼容性问题 FireFox和IE设置透明度IE: filter:progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=60)FireFox: opacity:.6FireFox和IE对盒模型解释不一致导致相差2px`例：box.style{  width：100px;  border 1px;}IE理解为width=100pxFF">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-05T12:25:21.728Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="穿堂风">
-<meta name="twitter:description" content="来尬聊">
+<meta name="twitter:description" content="浏览器常见兼容性问题 FireFox和IE设置透明度IE: filter:progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=60)FireFox: opacity:.6FireFox和IE对盒模型解释不一致导致相差2px`例：box.style{  width：100px;  border 1px;}IE理解为width=100pxFF">
   
     <link rel="alternative" href="/atom.xml" title="穿堂风" type="application/atom+xml">
   
@@ -176,106 +177,65 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2017/08/05/笔记/" class="article-date">
+  	<time datetime="2017-08-05T11:42:27.984Z" itemprop="datePublished">2017-08-05</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+    <div class="article-entry" itemprop="articleBody">
       
+        <h2 id="浏览器常见兼容性问题"><a href="#浏览器常见兼容性问题" class="headerlink" title="浏览器常见兼容性问题"></a>浏览器常见兼容性问题</h2><hr>
+<p>FireFox和IE设置透明度<br><code>IE: filter:progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=60)</code><br><code>FireFox: opacity:.6</code><br>FireFox和IE对盒模型解释不一致导致相差2px<br>`例：box.style{<br>  width：100px;<br>  border 1px;<br>}<br>IE理解为width=100px<br>FF则理解为width=100+1*2=102px//算上了边框</p>
+<p>解决方法：div{<br>          margin：30px！important;<br>          margin：28px;<br>                        }<br>因为IE不能识别!important这个属性所以会解析成<br>          div{<br>          width:30px;<br>          width:28px;<br>          }<br>这样就会覆盖前面的定义但是其他浏览器可以解析!important;<code>IE6下margin加倍的问题</code>在IE6下设置了float属性的div其margin会加倍解决方法就是将div变成行内元素`</p>
+<p>IE下如何设置最小宽度？<br>`<br>.demo{<br>  width：expression(document.body.clientWidth&lt;600?’600px’:’auto’)<br>}</p>
+<h2 id=""><a href="#" class="headerlink" title="`"></a>`</h2><p>####持续补充中</p>
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
+    </div>
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/05/笔记/" class="archive-article-date">
-  	<time datetime="2017-08-05T11:42:27.984Z" itemprop="datePublished">8月 5</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-left">
-          
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/02/数组去重的方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数组去重的方法</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/02/数组去重的方法/" class="archive-article-date">
-  	<time datetime="2017-08-02T06:31:45.000Z" itemprop="datePublished">8月 2</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/02/数组去重的方法/">
-        数组去重的方法
-        
-      </a>
-    </h1>
-  
 
-        <div class="article-info info-on-left">
-          
-          
 
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/02/hello-world/" class="archive-article-date">
-  	<time datetime="2017-08-02T03:34:14.633Z" itemprop="datePublished">8月 2</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/02/hello-world/">
-        Hello World
-        
-      </a>
-    </h1>
-  
+<div class="ds-share share" data-thread-key="笔记" data-title="" data-url="https://bianliyao.github.io/2017/08/05/笔记/"  data-images="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1502277397&amp;di=be2068e3f34e8229c264817e29662dfc&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fuploads.yeyoujia.com%2Fcms%2Fimages%2F2016%2F12%2F26%2F58608935d80a9001386249.png" data-content="">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
 
-        <div class="article-info info-on-left">
-          
-          
 
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
 
 </div>
       <footer id="footer">
@@ -301,8 +261,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false

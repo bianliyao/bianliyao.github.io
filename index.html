@@ -178,6 +178,51 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/05/笔记/" class="article-date">
+  	<time datetime="2017-08-05T11:42:27.984Z" itemprop="datePublished">2017-08-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="浏览器常见兼容性问题"><a href="#浏览器常见兼容性问题" class="headerlink" title="浏览器常见兼容性问题"></a>浏览器常见兼容性问题</h2><hr>
+<p>FireFox和IE设置透明度<br><code>IE: filter:progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=60)</code><br><code>FireFox: opacity:.6</code><br>FireFox和IE对盒模型解释不一致导致相差2px<br>`例：box.style{<br>  width：100px;<br>  border 1px;<br>}<br>IE理解为width=100px<br>FF则理解为width=100+1*2=102px//算上了边框</p>
+<p>解决方法：div{<br>          margin：30px！important;<br>          margin：28px;<br>                        }<br>因为IE不能识别!important这个属性所以会解析成<br>          div{<br>          width:30px;<br>          width:28px;<br>          }<br>这样就会覆盖前面的定义但是其他浏览器可以解析!important;<code>IE6下margin加倍的问题</code>在IE6下设置了float属性的div其margin会加倍解决方法就是将div变成行内元素`</p>
+<p>IE下如何设置最小宽度？<br>`<br>.demo{<br>  width：expression(document.body.clientWidth&lt;600?’600px’:’auto’)<br>}</p>
+<h2 id=""><a href="#" class="headerlink" title="`"></a>`</h2><p>####持续补充中</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-数组去重的方法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
